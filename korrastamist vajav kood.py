@@ -26,9 +26,9 @@ print("Hambaid tuleks lasta kontrollida vähemalt kaks korda aastas.")
 print("Millal viimati hambaarsti juures käisid?")
 
 try:
+    # küsime kuupäeva, paneme selle logisse kui on õiges vormis ja tagastame kasutajale visiidi kuupäeva
     sisend = input("Sisesta kuupäev (kujul pp.kk.aaaa): ")
     logimine(sisend)
-    # logisse kirjutamine vaja teha
     i_päev, i_kuu, i_aasta = map(int, sisend.split('.'))
     külastuse_kuupäev = datetime.date(i_aasta, i_kuu, i_päev)
     
@@ -39,6 +39,6 @@ try:
         uus_külastus = arvuta_visiidi_kuupäev(külastuse_kuupäev)
         print("Peaksid minema uuele visiidile umbes: " + kuupäev_str(uus_külastus))
 except Exception as viga:
+    # kui kuupäev on vales formaadis, logime selle ja tagastame veasõnumi
     print("Sisestasid kuupäeva vales formaadis!")
     logimine(viga)
-    # logisse kirjutamine vaja teha
